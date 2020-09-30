@@ -63,8 +63,11 @@ public class GameAlgo
                                         enemyAppears();
                                         championAndOpponentStatus();
                                         printStatus();
-                                        
-                                        if(opponent.getHealthPoints() == 0)
+                                        if(opponent.getHealthPoints() == 0 && user.getHealthPoints() == 0)
+                                        {
+                                            break;
+                                        }
+                                        else if(opponent.getHealthPoints() == 0)
                                         {
                                             System.out.print("\n" + user.getHeroName() + " wins!\n"
                                                     + user.getHeroName() + ": " + user.getHeroTalk());
@@ -73,10 +76,6 @@ public class GameAlgo
                                         {
                                             System.out.print("\n" + opponent.getHeroName() + " wins!\n"
                                                     + opponent.getHeroName() + ": " + opponent.getHeroTalk());
-                                        }
-                                        else if(opponent.getHealthPoints() == 0 && user.getHealthPoints() == 0)
-                                        {
-                                            break;
                                         }
                                     }
                                     else
@@ -93,7 +92,11 @@ public class GameAlgo
                                         enemyAppears();
                                         championAndOpponentStatus();
                                         printStatus();
-                                        if(opponent.getHealthPoints() == 0)
+                                        if(opponent.getHealthPoints() == 0 && user.getHealthPoints() == 0)
+                                        {
+                                            break;
+                                        }
+                                        else if(opponent.getHealthPoints() == 0)
                                         {
                                             System.out.print("\n" + user.getHeroName() + " wins!\n"
                                                     + user.getHeroName() + ": " + user.getHeroTalk());
@@ -102,10 +105,6 @@ public class GameAlgo
                                         {
                                             System.out.print("\n" + opponent.getHeroName() + " wins!\n"
                                                     + opponent.getHeroName() + ": " + opponent.getHeroTalk());
-                                        }
-                                        else if(opponent.getHealthPoints() == 0 && user.getHealthPoints() == 0)
-                                        {
-                                            break;
                                         }
                                     }
                                     else
@@ -121,19 +120,19 @@ public class GameAlgo
                                         enemyAppears();
                                         championAndOpponentStatus();
                                         printStatus();
-                                        if(opponent.getHealthPoints() == 0)
+                                        if(opponent.getHealthPoints() <= 0 && user.getHealthPoints() <= 0)
+                                        {
+                                            break;
+                                        }
+                                        else if(opponent.getHealthPoints() <= 0)
                                         {
                                             System.out.print("\n" + user.getHeroName() + " wins!\n"
                                                     + user.getHeroName() + ": " + user.getHeroTalk());
                                         }
-                                        else if(user.getHealthPoints() == 0)
+                                        else if(user.getHealthPoints() <= 0)
                                         {
                                             System.out.print("\n" + opponent.getHeroName() + " wins!\n"
                                                     + opponent.getHeroName() + ": " + opponent.getHeroTalk());
-                                        }
-                                        else if(opponent.getHealthPoints() == 0 && user.getHealthPoints() == 0)
-                                        {
-                                            break;
                                         }
                                     }
                                     else
@@ -322,7 +321,7 @@ public class GameAlgo
 
                    default:
                         System.out.print("\n\n"
-                                + user.getHeroName() + "run!");
+                                + user.getHeroName() + " run!");
                         opponent.setHealthPoints(0); 
                         user.setHealthPoints(0);
                         break;
