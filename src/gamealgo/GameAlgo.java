@@ -18,7 +18,7 @@ public class GameAlgo
         while (isPlaying)
         {
             System.out.print("\n\n"
-                    + "Welcome to kepap legends\n"
+                    + "Welcome to Kepap legends\n"
                     + "=====================================================\n"
                     + "1 - Start Game\n"
                     + "2 - Exit\n"
@@ -36,7 +36,7 @@ public class GameAlgo
                         System.out.print("\nLoading..");
                         for(int i = 0; i <= 6; i++)
                         {
-                            Thread.sleep(500);
+                            Thread.sleep(300);
                             System.out.print(".");
                         }
                         
@@ -59,20 +59,20 @@ public class GameAlgo
                                 case 1:
                                     if(finalChampion("Nayeon"))
                                     {
-                                        user = new Heroes("Nayeon", "HI! I am Nayeonie...", new String[]{"Charm", "Health" ,"Aegyo"}, 100, new int[]{10, 15, 20});
+                                        user = new Heroes("Nayeon", "HI! I am Nayeonie... The prettiest of all", new String[]{"Charm", "Health" ,"Aegyo"}, 100, new int[]{10, 15, 20});
                                         enemyAppears();
                                         championAndOpponentStatus();
                                         printStatus();
-                                        if(opponent.getHealthPoints() == 0 && user.getHealthPoints() == 0)
+                                        if(opponent.getHealthPoints() <= 0 && user.getHealthPoints() <= 0)
                                         {
                                             break;
                                         }
-                                        else if(opponent.getHealthPoints() == 0)
+                                        else if(opponent.getHealthPoints() <= 0)
                                         {
                                             System.out.print("\n" + user.getHeroName() + " wins!\n"
                                                     + user.getHeroName() + ": " + user.getHeroTalk());
                                         }
-                                        else if(user.getHealthPoints() == 0)
+                                        else if(user.getHealthPoints() <= 0)
                                         {
                                             System.out.print("\n" + opponent.getHeroName() + " wins!\n"
                                                     + opponent.getHeroName() + ": " + opponent.getHeroTalk());
@@ -88,20 +88,20 @@ public class GameAlgo
                                 case 2:
                                     if(finalChampion("Chaeyoung"))
                                     {
-                                        user = new Heroes("Chaeyoung", "HI! I am Chaeyoung...", new String[]{"Rap", "Health" ,"MiChaeng Charm"}, 100, new int[]{5, 15, 40});
+                                        user = new Heroes("Chaeyoung", "Chaeyoungie, your strawberry princess!", new String[]{"Rap", "Health" ,"MiChaeng Charm"}, 100, new int[]{5, 15, 40});
                                         enemyAppears();
                                         championAndOpponentStatus();
                                         printStatus();
-                                        if(opponent.getHealthPoints() == 0 && user.getHealthPoints() == 0)
+                                        if(opponent.getHealthPoints() <= 0 && user.getHealthPoints() <= 0)
                                         {
                                             break;
                                         }
-                                        else if(opponent.getHealthPoints() == 0)
+                                        else if(opponent.getHealthPoints() <= 0)
                                         {
                                             System.out.print("\n" + user.getHeroName() + " wins!\n"
                                                     + user.getHeroName() + ": " + user.getHeroTalk());
                                         }
-                                        else if(user.getHealthPoints() == 0)
+                                        else if(user.getHealthPoints() <= 0)
                                         {
                                             System.out.print("\n" + opponent.getHeroName() + " wins!\n"
                                                     + opponent.getHeroName() + ": " + opponent.getHeroTalk());
@@ -116,7 +116,7 @@ public class GameAlgo
                                 case 3:
                                     if(finalChampion("Mina"))
                                     {
-                                        user = new Heroes("Mina", "HI! I am Minari...", new String[]{"Ballet", "Health" ,"MiChaeng Charm"}, 100, new int[]{10, 15, 40});
+                                        user = new Heroes("Mina", "Ballerina Mina, Mina-mina-minari!", new String[]{"Ballet", "Health" ,"MiChaeng Charm"}, 100, new int[]{10, 15, 40});
                                         enemyAppears();
                                         championAndOpponentStatus();
                                         printStatus();
@@ -178,7 +178,8 @@ public class GameAlgo
             case 0: 
                 damage = ran.nextInt(user.getFirstAbilityDamage());
                 opponent.setHealthPoints(opponent.getHealthPoints() - damage);
-                System.out.print("\n\n"
+                System.out.print("\n"
+                        + "=====================================================\n"
                     +user.getHeroName() + " used " + user.getFirstAbilityName());
                 break;
             case 1: 
@@ -188,13 +189,15 @@ public class GameAlgo
                 {
                     user.setHealthPoints(100);
                 }
-                System.out.print("\n\n"
+                System.out.print("\n"
+                        + "=====================================================\n"
                     +user.getHeroName() + " used " + user.getSecondAbilityName());
                 break;
             case 2: 
                 damage = ran.nextInt(user.getThirdAbilityDamage());
                 opponent.setHealthPoints(opponent.getHealthPoints() - damage);
-                System.out.print("\n\n"
+                System.out.print("\n"
+                        + "=====================================================\n"
                     +user.getHeroName() + " used " + user.getThirdAbilityName());
                 break;
         }
@@ -214,8 +217,9 @@ public class GameAlgo
             case 0: 
                 damage = ran.nextInt(opponent.getFirstAbilityDamage());
                 user.setHealthPoints(user.getHealthPoints() - damage);
-                System.out.print("\n\n"
-                    +opponent.getHeroName() + " used " + opponent.getFirstAbilityName());
+                System.out.print("\n"
+                    +opponent.getHeroName() + " used " + opponent.getFirstAbilityName()
+                +"\n=====================================================");
                 break;
             case 1: 
                 damage = ran.nextInt(opponent.getSecondAbilityDamage());
@@ -224,14 +228,16 @@ public class GameAlgo
                 {
                     opponent.setHealthPoints(100);
                 }
-                System.out.print("\n\n"
-                    +opponent.getHeroName() + " used " + opponent.getSecondAbilityName());
+                System.out.print("\n"
+                    +opponent.getHeroName() + " used " + opponent.getSecondAbilityName()
+                +"\n=====================================================");
                 break;
             case 2: 
                 damage = ran.nextInt(opponent.getThirdAbilityDamage());
                 user.setHealthPoints(user.getHealthPoints() - damage);
-                System.out.print("\n\n"
-                    +opponent.getHeroName() + " used " + opponent.getThirdAbilityName());
+                System.out.print("\n"
+                    +opponent.getHeroName() + " used " + opponent.getThirdAbilityName()
+                +"\n=====================================================");
                 break;
         }
         if(opponent.getHealthPoints() < 0)
@@ -248,7 +254,7 @@ public class GameAlgo
     
     private static Boolean finalChampion(String heroName)
     {
-        System.out.print("\nYou choose " + heroName + ", is it your final choice? ");
+        System.out.print("\nYou choose " + heroName + ", is it your final choice? (Yes or No only. Other input will be considered as no): ");
         scan = new Scanner(System.in);
         String isFinal = scan.next();
         
