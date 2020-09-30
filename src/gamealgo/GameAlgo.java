@@ -1,5 +1,12 @@
 package gamealgo;
 
+/*
+    *Created by
+    *Charles Nicholas Berches
+    *Ezekiel Vasquez
+    *BSIT304
+*/
+
 import java.util.Scanner;
 import java.util.Random;
 
