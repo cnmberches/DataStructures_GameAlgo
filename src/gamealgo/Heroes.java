@@ -16,9 +16,14 @@ public class Heroes
         this.damage = damage;
     }
     
-    void heroTalk()
+    void setHeroTalk(String heroTalk)
     {
-        System.out.println(this.heroTalk);
+        this.heroTalk = heroTalk;
+    }
+    
+    String getHeroTalk()
+    {
+        return this.heroTalk;
     }
     
     void useAbility(int abilityNumber, int abilityDamage, Heroes opponent)
